@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form action="@Url.Action("EnviarFormulario", "Home")" method="post">
+                <h2 class="mb-4">Formulario de Voluntarios</h2>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="primerApellido">Primer Apellido:</label>
+                    <input type="text" class="form-control" id="primerApellido" name="primerApellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="segundoApellido">Segundo Apellido:</label>
+                    <input type="text" class="form-control" id="segundoApellido" name="segundoApellido" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="interes">Interés:</label>
+                    <select class="form-control" id="interes" name="interes" required>
+                        <option value="">Selecciona un interés</option>
+                        <option value="Proyecto A">Proyecto A</option>
+                        <option value="Proyecto B">Proyecto B</option>
+                        <option value="Proyecto C">Proyecto C</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <section style="margin-bottom: 20px;"></section>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

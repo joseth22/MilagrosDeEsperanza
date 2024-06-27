@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar" >
+                <nav class="nav flex-column">
+                    <li>@Html.ActionLink("Usuarios", "Index", "Usuarios", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Noticias", "Index", "Noticias", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Proyectos", "Index", "Proyectos", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Donaciones", "Index", "Donaciones", new { area = "" }, new { @class = "nav-link" })</li>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="content">
+                <h2>@ViewBag.Title</h2>
+
+                <section id="usuarios" class="admin-module">
+                    <h3>Gestión de Usuarios</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Ver Usuarios", "Index", "Usuarios", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </section>
+
+                <section id="noticias" class="admin-module">
+                    <h3>Gestión de Noticias</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Ver Noticias", "Index", "Noticias", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Agregar Noticias", "Create", "Noticias", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </section>
+
+                <section id="proyectos" class="admin-module">
+                    <h3>Gestión de Proyectos</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Ver Proyectos", "Index", "Proyectos", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Agregar Proyectos", "Create", "Proyectos", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </section>
+
+                <section id="donaciones" class="admin-module">
+                    <h3>Gestión de Donaciones</h3>
+                    <ul>
+                        <li>@Html.ActionLink("Ver Donaciones", "Index", "Donaciones", new { area = "" }, new { @class = "nav-link" })</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>

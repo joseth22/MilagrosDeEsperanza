@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MilagrosDeEsperazna</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal Internet Explorer compatibility -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <section class="header-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="contact">
+                                <p><span class="phone"><a href="#">Teléfono: +506 7102 8857</a></span><span class="email"><a href="#">Email: proyectos@milagrosdeesperanza.com</a></span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="join-us">
+                                <p><a href="@Url.Action("Login", "Admin")">STAFF</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="header-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <a href="@Url.Action("Index", "Home")">
+                                <div class="main-logo">
+                                    <img src="~/img/logo.png" alt="">
+                                    
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                            <div class="menu">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="@Url.Action("Index", "Home")">INICIO</a></li>
+                                    <li><a href="@Url.Action("About", "Home")">ACERCA DE</a></li>
+                                    <li><a href="@Url.Action("Proyectos", "Home")">PROYECTOS</a></li>
+                                    <li><a href="@Url.Action("Donaciones", "Home")">DONACIONES</a></li>
+                                    <li><a href="@Url.Action("Formulario", "Home")">UNETE </a></li>
+                                    <li><a href="@Url.Action("Noticias", "Home")">BLOG</a></li>
+                                    <li><a href="@Url.Action("Contact", "Home")">CONTACTO</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+
+     <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <div class="footer-charity-text">
+                        <h2>MILAGROS DE ESPERANZA</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+                        <hr>
+                        <p><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-5">
+                            <div class="footer-text one">
+                                <h3>NOTICIAS RECIENTES</h3>
+                                <ul>
+                                        <li><a href="#"><i class="fas fa-angle-right"></i> Consectetur Adipisicing Elit</a></li>
+                                        <li><a href="#"><i class="fas fa-angle-right"></i> Consectetur Adipisicing </a></li>
+                                        <li><a href="#"><i class="fas fa-angle-right"></i> Consectetur Adipisicing Elit</a></li>
+                                        <li><a href="#"><i class="fas fa-angle-right"></i> Consectetur Adipisicing</a></li>
+                                        <li><a href="#"><i class="fas fa-angle-right"></i> Consectetur Adipisicing Elit</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-3">
+                            <div class="footer-text two">
+                                <h3>SITIOS FRECUENTES</h3>
+                                <ul>
+                                        <li><a href="@Url.Action("Index", "Home")">INCIO</a></li>
+                                        <li><a href="@Url.Action("Proyectos", "Home")">PROYECTOS</a></li>
+                                        <li><a href="@Url.Action("Donaciones", "Home")">DONACIONES</a></li>
+                                        <li><a href="@Url.Action("Formulario", "Home")">UNETE </a></li>
+                                        
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div class="footer-text one">
+                                <h3>CONTACTANOS</h3>
+                                <ul>
+                                        <li><a href="#"><i class="fas fa-envelope"></i>proyectos@milagrosdeesperanza.com</a></li>
+                                        <li><a href="#"><i class="fas fa-phone"></i>+506 7102 8857</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                &copy; @DateTime.Now.Year - MilagrosDeEsperanza - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+       
+    </footer> 
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/owl.carousel.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/animationcounter.js"></script>
+        <script src="~/lib/bootstrap/dist/js/active.js"></script>
+        <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+        
+       
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-36251023-1']);
+        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

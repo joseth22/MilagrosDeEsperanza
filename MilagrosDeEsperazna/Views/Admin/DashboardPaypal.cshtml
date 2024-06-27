@@ -1,0 +1,116 @@
+﻿@model List<MilagrosDeEsperanza.Models.Comentario>
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div id="layoutSidenav_content">
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+        <div class="row">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Gestión de Noticias</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">Gestión de Proyectos</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="#">Ver Detalles</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Gestión de Usuarios</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="@Url.Action("DashboardUsuario", "Admin")">Ver Detalles</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-info text-white mb-4">
+                    <div class="card-body">Información de PayPal</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" href="@Url.Action("DashboardUsuario", "Admin")">Ver Detalles</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Donaciones Recibidas
+            </div>
+            <div class="card-body">
+                <table id="donationsTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>ID de Transacción</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Monto</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Donaciones se insertarán aquí -->
+                    </tbody>
+                </table>
+                <p id="noDonationsMessage" style="display: none;">No hay donaciones disponibles.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch('/Admin/GetPayPalToken')
+            .then(response => response.json())
+            .then(data => {
+                const token = data.token;
+                return fetch('https://api.sandbox.paypal.com/v1/payments/payment', {
+                    headers: {
+                        'Authorization': 'Bearer ' + token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            })
+            .then(response => response.json())
+            .then(data => {
+                const payments = data.payments || [];
+                const tableBody = document.querySelector('#donationsTable tbody');
+                const noDonationsMessage = document.getElementById('noDonationsMessage');
+
+                if (payments.length > 0) {
+                    payments.forEach(payment => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                                <td>${payment.id}</td>
+                                <td>${payment.payer.payer_info.first_name} ${payment.payer.payer_info.last_name}</td>
+                                <td>${payment.payer.payer_info.email}</td>
+                                <td>${payment.transactions[0].amount.total} ${payment.transactions[0].amount.currency}</td>
+                                <td>${new Date(payment.create_time).toLocaleString()}</td>
+                            `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    noDonationsMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+</script>
